@@ -1,0 +1,8 @@
+.banner{
+    background-color: rgb(36, 149, 248);
+    width: 100%;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1rem;
+  }

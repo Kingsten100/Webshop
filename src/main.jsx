@@ -11,6 +11,9 @@ import './Pages/Products/Products.css'
 import './Pages/ProductDetails/ProductDetails.css'
 
 import './Components/Navbar/Navbar.css'
+import './Components/BannerFoot/BannerFoot.css'
+import './Components/Footer/Footer.css'
+import './Components/ImageSlider/ImageSlider.css'
 
 import Navbar from './Components/Navbar/Navbar'
 import Home from './Pages/Home/Home'
