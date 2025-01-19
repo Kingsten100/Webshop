@@ -1,8 +1,16 @@
 import React from 'react'
+import { useState } from 'react'
 import {Link, NavLink} from 'react-router'
 import './Navbar.css'
+import { useCart } from '../../Contexts/CartContext'
+
 
 const Navbar = () => {
+
+  const {toggleCart} = useCart()
+
+  
+
   return (
     <div className='navbar-component'>
       <div className='container'>
@@ -16,8 +24,10 @@ const Navbar = () => {
             <li><NavLink to='/products'>Products</NavLink></li>
             <li><NavLink to='/contact'>Contact</NavLink></li>
             <li><NavLink to='/login'>Login</NavLink></li>
+            <li><button onClick={toggleCart}>Varukorg</button></li>
           </ul>
         </div>
+        
       </div>
     </div>
     
