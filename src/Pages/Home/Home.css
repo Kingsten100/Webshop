@@ -54,15 +54,10 @@
     }
     .product-section{
       padding-block: 1rem;
-    }
-
-    .product-list{
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      gap: 1rem;
-      list-style: none;
       
     }
+
+
     .product-img-container{
       display: flex;
       justify-content: center;
@@ -114,6 +109,19 @@
         color: black;
       }
     }
+
+    .product-list{
+      max-width: 1200px;
+      margin: 0 auto;
+      .product-display{
+          padding-block: 1rem;
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          gap: 1rem;
+  
+          
+      }
+  }
 
     
 }
