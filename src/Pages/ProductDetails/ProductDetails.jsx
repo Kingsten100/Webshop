@@ -1,28 +1,40 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import ImageSlider from '../../Components/ImageSlider/ImageSlider'
+import { ProductsContext } from '../../Contexts/ProductsContext'
 
 const ProductDetails = () => {
 
-    const {productId} = useParams()
+  const { products } = useContext(ProductsContext)
+  const { productId } = useParams()
 
-    const [product, setProduct] = useState([])
-    
+  console.log(products)
 
-    useEffect(()=> {
-        const getProduct = async () => {
-            const res = await fetch(`https://js2-ecommerce-api.vercel.app/api/products/${productId}`)
-            const data = await res.json()
-            setProduct(data)
-        }
-        getProduct()
-    }, [productId])
+  const product = products.length > 0 ? products.find(pro => pro._id === productId) : null
+
+  if(!product){
+    return <div>Laddar produkt...</div>
+  }
+  console.log(productId)
 
   return (
     <div className='pd-card'>
-      <h1>{product.name}</h1>
-      <ImageSlider images={product.images} />
-      <p>{product.description}</p>
+      <div className='pd-img-container'>
+        <div className='bild'> 
+        
+          <div className='img-img'>
+            <ImageSlider images={product.images} />
+          </div>
+        </div>
+      </div>
+      <div className='pd-info'>
+        <h1>{product.name}</h1>
+        <p>{product.description}</p>
+      </div>
+      <div className='pd-pur'>
+        <p>{product.price}:-</p>
+        <button>Lägg till i varukorg</button>
+      </div>
     </div>
   )
   

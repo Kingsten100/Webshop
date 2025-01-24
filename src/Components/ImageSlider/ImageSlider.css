@@ -1,5 +1,6 @@
 
 .image-slider{
+  padding: 5rem;
     
       .product-img-container{
         display: flex;
@@ -35,11 +36,14 @@
         background-color: rgba(239, 239, 239, 0.485);
       }
 
-
+      .product-img-container{
+        max-width: 100%;
+        max-height: 400px;
+      }
       
       .product-img{
-        max-width: 300px;
-        max-width: 300px;
+        max-width: 100%;
+        max-height: 100%;
         object-fit: cover;
         
       }
