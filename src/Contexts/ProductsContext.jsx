@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState} from 'react'
-import { useParams } from 'react-router'
+
 
 
 export const ProductsContext = createContext()

@@ -30,23 +30,26 @@ import Contact from './Pages/Contact/Contact'
 import ProductDetails from './Pages/ProductDetails/ProductDetails'
 import Cart from './Components/Cart/Cart'
 import { ProductsContextProvider } from './Contexts/ProductsContext'
+import { ContactContextProvider } from './Contexts/ContactContext'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <CartContextProvider>
       <ProductsContextProvider>
-        <BrowserRouter>
-          <Navbar />
-          <Cart />
-          <Routes>
-            <Route path='/' element={ <Home />} />
-            <Route path='/about' element={ <About /> } />
-            <Route path='/products' element={ <Products />} />
-            <Route path='/login' element={ <LogIn />} />
-            <Route path='/contact' element={ <Contact />} />
-            <Route path='/products/:productId' element={ <ProductDetails />} />
-          </Routes>
-        </BrowserRouter>
+        <ContactContextProvider>
+          <BrowserRouter>
+            <Navbar />
+            <Cart />
+            <Routes>
+              <Route path='/' element={ <Home />} />
+              <Route path='/about' element={ <About /> } />
+              <Route path='/products' element={ <Products />} />
+              <Route path='/login' element={ <LogIn />} />
+              <Route path='/contact' element={ <Contact />} />
+              <Route path='/products/:productId' element={ <ProductDetails />} />
+            </Routes>
+          </BrowserRouter>
+        </ContactContextProvider>
       </ProductsContextProvider>
     </CartContextProvider>
   </StrictMode>,
