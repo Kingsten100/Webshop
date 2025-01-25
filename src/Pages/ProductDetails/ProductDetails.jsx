@@ -2,20 +2,26 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import ImageSlider from '../../Components/ImageSlider/ImageSlider'
 import { ProductsContext } from '../../Contexts/ProductsContext'
+import { useCart } from '../../Contexts/CartContext'
 
 const ProductDetails = () => {
 
   const { products } = useContext(ProductsContext)
   const { productId } = useParams()
-
-  console.log(products)
+  const { addToCart } = useCart()
 
   const product = products.length > 0 ? products.find(pro => pro._id === productId) : null
 
   if(!product){
     return <div>Laddar produkt...</div>
   }
-  console.log(productId)
+  
+  
+
+  const handleClick = () => {
+    console.log('Lägger till produkt', product)
+    addToCart(product)
+  }
 
   return (
     <div className='pd-card'>
@@ -33,7 +39,7 @@ const ProductDetails = () => {
       </div>
       <div className='pd-pur'>
         <p>{product.price}:-</p>
-        <button>Lägg till i varukorg</button>
+        <button onClick={handleClick}>Lägg till i varukorg</button>
       </div>
     </div>
   )

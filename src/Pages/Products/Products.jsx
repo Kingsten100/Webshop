@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from 'react'
-import ProductItem from '../../Components/ProductItem'
+
 import ImageSlider from '../../Components/ImageSlider/ImageSlider'
 import { Link } from 'react-router'
 import { useATC } from '../../Contexts/AddToCart'

@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import {BrowserRouter, Route, Routes} from 'react-router'
-import { CartProvider } from './Contexts/CartContext'
+import { CartContextProvider } from './Contexts/CartContext'
 import { AtcProvider } from './Contexts/AddToCart'
 
 import './index.css'
@@ -19,6 +19,7 @@ import './Components/ImageSlider/ImageSlider.css'
 import './Components/Cart/Cart.css'
 import './Components/ProductList/ProductList.css'
 import './Components/ProductCard/ProductCard.css'
+import './Components/CartItem/CartItem.css'
 
 import Navbar from './Components/Navbar/Navbar'
 import Home from './Pages/Home/Home'
@@ -32,23 +33,23 @@ import { ProductsContextProvider } from './Contexts/ProductsContext'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <ProductsContextProvider>
-      <CartProvider>
-        <AtcProvider>
-          <BrowserRouter>
-            <Navbar />
-            <Cart />
-            <Routes>
-              <Route path='/' element={ <Home />} />
-              <Route path='/about' element={ <About /> } />
-              <Route path='/products' element={ <Products />} />
-              <Route path='/login' element={ <LogIn />} />
-              <Route path='/contact' element={ <Contact />} />
-              <Route path='/products/:productId' element={ <ProductDetails />} />
-            </Routes>
-        </BrowserRouter>
-        </AtcProvider>
-      </CartProvider>
-    </ProductsContextProvider>
+    <CartContextProvider>
+      <ProductsContextProvider>
+          <AtcProvider>
+            <BrowserRouter>
+              <Navbar />
+              <Cart />
+              <Routes>
+                <Route path='/' element={ <Home />} />
+                <Route path='/about' element={ <About /> } />
+                <Route path='/products' element={ <Products />} />
+                <Route path='/login' element={ <LogIn />} />
+                <Route path='/contact' element={ <Contact />} />
+                <Route path='/products/:productId' element={ <ProductDetails />} />
+              </Routes>
+          </BrowserRouter>
+          </AtcProvider>
+      </ProductsContextProvider>
+    </CartContextProvider>
   </StrictMode>,
 )

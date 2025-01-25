@@ -1,42 +1,39 @@
 import React from 'react'
 import { useCart } from '../../Contexts/CartContext'
-import { useATC } from '../../Contexts/AddToCart'
+import CartItem from '../CartItem/CartItem'
 
 const Cart = () => {
 
-    const {isCartOpen, toggleCart} = useCart()
-    const {cartItems, removeFromCart} = useATC()
+  const {isCartOpen, toggleCart, cart, totalPrice} = useCart()
 
-    if (!isCartOpen) return null
-
+  if (!isCartOpen) return null
 
 
   return (
     <div className='modal-component'>
         
         <div className='modal'>
-            <div className='header'>
-                <h3>Varukorg</h3>
-                <button onClick={toggleCart} className='close-btn'>X</button>
-            </div>
-            <ul>
-
+          <div className='header'>
+              <h3>Varukorg</h3>
+              <button onClick={toggleCart} className='close-btn'>X</button>
+          </div>
+          {
+            cart.length <= 0 && (
+              <div>
+                <p>Din varukorg är tom</p>
+              </div>
+            )
+          }
+          {
+            cart.map(item => (
+              <CartItem key={'cart_' + item.product._id} item={item} />
+            ))
+          }
+          <div className='total-price'>
+            <p>Totalt: { totalPrice }:-</p>
+          </div>
             
-              {
-                cartItems.length === 0 ? (
-                  <p>Din varukorg är tom</p>
-                ) : (
-                  cartItems.map((item) => (
-                    <li key={item.id}>
-                      <p>{item.name} - {item.quantity} st</p>
-                      <button onClick={() => removeFromCart(item.id)}>Ta bort</button>
-                    </li>
-                  ))
-                )
-              }
-            </ul>
-            
-            <p>Här är din varukorg</p>
+          
             
         </div>
         
