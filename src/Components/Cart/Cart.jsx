@@ -4,15 +4,19 @@ import CartItem from '../CartItem/CartItem'
 
 const Cart = () => {
 
-  const {isCartOpen, toggleCart, cart, totalPrice} = useCart()
+  const {isCartOpen, toggleCart, cart, totalPrice, toggleCartOverlay} = useCart()
 
   if (!isCartOpen) return null
 
+  const handleModalClick = (e) => {
+    e.stopPropagation()
+  }
+
 
   return (
-    <div className='modal-component'>
+    <div onClick={toggleCartOverlay} className='modal-component'>
         
-        <div className='modal'>
+        <div className='modal' onClick={handleModalClick}>
           <div className='header'>
               <h3>Varukorg</h3>
               <button onClick={toggleCart} className='close-btn'>X</button>

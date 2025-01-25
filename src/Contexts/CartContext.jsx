@@ -78,7 +78,15 @@ export const CartContextProvider = ({ children }) => {
     setCart([])
   }
 
-  const toggleCart = () => setIsCartOpen(!isCartOpen);
+  const toggleCart = (e) => {
+    e.stopPropagation()
+    setIsCartOpen(!isCartOpen);
+  }
+
+  const toggleCartOverlay = (e) => {
+    e.stopPropagation()
+    setIsCartOpen(!isCartOpen)
+  }
 
   const value = {
     cart,
@@ -89,7 +97,8 @@ export const CartContextProvider = ({ children }) => {
     removeItem,
     clearCart,
     isCartOpen,
-    toggleCart
+    toggleCart,
+    toggleCartOverlay
 
   }
 

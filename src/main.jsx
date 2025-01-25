@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import {BrowserRouter, Route, Routes} from 'react-router'
 import { CartContextProvider } from './Contexts/CartContext'
-import { AtcProvider } from './Contexts/AddToCart'
+
 
 import './index.css'
 import './Pages/About/About.css'
@@ -35,20 +35,18 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <CartContextProvider>
       <ProductsContextProvider>
-          <AtcProvider>
-            <BrowserRouter>
-              <Navbar />
-              <Cart />
-              <Routes>
-                <Route path='/' element={ <Home />} />
-                <Route path='/about' element={ <About /> } />
-                <Route path='/products' element={ <Products />} />
-                <Route path='/login' element={ <LogIn />} />
-                <Route path='/contact' element={ <Contact />} />
-                <Route path='/products/:productId' element={ <ProductDetails />} />
-              </Routes>
-          </BrowserRouter>
-          </AtcProvider>
+        <BrowserRouter>
+          <Navbar />
+          <Cart />
+          <Routes>
+            <Route path='/' element={ <Home />} />
+            <Route path='/about' element={ <About /> } />
+            <Route path='/products' element={ <Products />} />
+            <Route path='/login' element={ <LogIn />} />
+            <Route path='/contact' element={ <Contact />} />
+            <Route path='/products/:productId' element={ <ProductDetails />} />
+          </Routes>
+        </BrowserRouter>
       </ProductsContextProvider>
     </CartContextProvider>
   </StrictMode>,
