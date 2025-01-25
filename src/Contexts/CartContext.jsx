@@ -81,11 +81,23 @@ export const CartContextProvider = ({ children }) => {
   const toggleCart = (e) => {
     e.stopPropagation()
     setIsCartOpen(!isCartOpen);
+
+    if(!isCartOpen){
+      document.body.style.overflow = 'hidden'
+    } else{
+      document.body.style.overflow = 'auto'
+    }
   }
 
   const toggleCartOverlay = (e) => {
     e.stopPropagation()
     setIsCartOpen(!isCartOpen)
+
+    if(!isCartOpen){
+      document.body.style.overflow = 'hidden'
+    } else{
+      document.body.style.overflow = 'auto'
+    }
   }
 
   const value = {

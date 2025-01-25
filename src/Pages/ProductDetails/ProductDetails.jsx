@@ -39,7 +39,7 @@ const ProductDetails = () => {
       </div>
       <div className='pd-pur'>
         <p>{product.price}:-</p>
-        <button onClick={handleClick}>Lägg till i varukorg</button>
+        <button className='atc-btn' onClick={handleClick}>Lägg till i varukorg</button>
       </div>
     </div>
   )

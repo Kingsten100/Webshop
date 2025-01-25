@@ -1,9 +1,18 @@
 import React, { useContext } from 'react'
 import { ProductsContext } from '../../Contexts/ProductsContext'
 import { Link } from 'react-router'
+import { useCart } from '../../Contexts/CartContext'
 
 const ProductCard = ({ product }) => {
     // const {products} = useContext(ProductsContext)
+
+    const { addToCart } = useCart()
+
+    const handleClick = () => {
+        console.log('Lägger till produkt', product)
+        addToCart(product)
+      }
+
   return (
    
         <div className='product-card' >
@@ -21,7 +30,7 @@ const ProductCard = ({ product }) => {
             </div>
             <div>
                 <p className='product-price'>{product.price}:-</p>
-                <button className='atc-btn'>Lägg till i varukorg</button>
+                <button onClick={handleClick} className='atc-btn'>Lägg till i varukorg</button>
             </div>
         </div>
 
