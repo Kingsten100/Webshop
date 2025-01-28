@@ -1,14 +1,15 @@
 import React, { useContext } from 'react'
 import ProductCard from '../ProductCard/ProductCard'
-import { ProductsContext } from '../../Contexts/ProductsContext'
+import { ProductsContext, useProducts } from '../../Contexts/ProductsContext'
 
 const ProductList = () => {
 
-    const {products} = useContext(ProductsContext)
+    const { filteredProducts } = useProducts()
+    
   return (
     <div className='product-list' >
         <div className='product-display'>
-            { products.map((product) => 
+            { filteredProducts.map((product) => 
                 <ProductCard key={product._id} product={product} />
             )}
         </div>
