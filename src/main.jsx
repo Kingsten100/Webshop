@@ -11,6 +11,7 @@ import './Pages/Home/Home.css'
 import './Pages/LogIn/Login.css'
 import './Pages/Products/Products.css'
 import './Pages/ProductDetails/ProductDetails.css'
+import './Pages/Checkout/Checkout.css'
 
 import './Components/Navbar/Navbar.css'
 import './Components/BannerFoot/BannerFoot.css'
@@ -31,6 +32,7 @@ import ProductDetails from './Pages/ProductDetails/ProductDetails'
 import Cart from './Components/Cart/Cart'
 import { ProductsContextProvider } from './Contexts/ProductsContext'
 import { ContactContextProvider } from './Contexts/ContactContext'
+import Checkout from './Pages/Checkout/Checkout'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -47,6 +49,7 @@ createRoot(document.getElementById('root')).render(
               <Route path='/login' element={ <LogIn />} />
               <Route path='/contact' element={ <Contact />} />
               <Route path='/products/:productId' element={ <ProductDetails />} />
+              <Route path='/checkout' element={ <Checkout />} />
             </Routes>
           </BrowserRouter>
         </ContactContextProvider>

@@ -1,15 +1,24 @@
 import React from 'react'
 import { useCart } from '../../Contexts/CartContext'
 import CartItem from '../CartItem/CartItem'
+import { Link, useNavigate } from 'react-router'
 
 const Cart = () => {
 
-  const {isCartOpen, toggleCart, cart, totalPrice, toggleCartOverlay} = useCart()
+  const {isCartOpen, toggleCart, cart, totalPrice, toggleCartOverlay, } = useCart()
+  const navigate = useNavigate()
 
   if (!isCartOpen) return null
 
+  
+
   const handleModalClick = (e) => {
     e.stopPropagation()
+  }
+
+  const handleCheckout = (e) => {
+    toggleCart(e)
+    navigate('/checkout')
   }
 
 
@@ -35,6 +44,10 @@ const Cart = () => {
           }
           <div className='total-price'>
             <p>Totalt: { totalPrice }:-</p>
+            
+              <button onClick={handleCheckout}>Checkout</button>
+            
+            
           </div>
             
           

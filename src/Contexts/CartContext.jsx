@@ -1,5 +1,6 @@
 import React, {createContext, useContext, useState} from 'react'
 
+
 export const CartContext = createContext();
 
 export const useCart = () => {
@@ -29,6 +30,7 @@ export const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([])
   const totalquantity = getTotalQuantity(cart)
   const totalPrice = getTotalPrice(cart)
+
 
   
 
@@ -88,6 +90,8 @@ export const CartContextProvider = ({ children }) => {
       document.body.style.overflow = 'auto'
     }
   }
+
+
 
   const toggleCartOverlay = (e) => {
     e.stopPropagation()
