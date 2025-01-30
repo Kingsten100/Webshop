@@ -21,6 +21,8 @@ import './Components/Cart/Cart.css'
 import './Components/ProductList/ProductList.css'
 import './Components/ProductCard/ProductCard.css'
 import './Components/CartItem/CartItem.css'
+import './Components/RegisterForm/RegisterForm.css'
+import './Components/LoginForm/LoginForm.css'
 
 import Navbar from './Components/Navbar/Navbar'
 import Home from './Pages/Home/Home'
@@ -33,27 +35,47 @@ import Cart from './Components/Cart/Cart'
 import { ProductsContextProvider } from './Contexts/ProductsContext'
 import { ContactContextProvider } from './Contexts/ContactContext'
 import Checkout from './Pages/Checkout/Checkout'
+import AuthContextProvider from './Contexts/AuthContext'
+import Rootlayout from './layouts/Rootlayout'
+import AuthLayout from './layouts/AuthLayout'
+import Register from './Pages/Register/Register'
+import PrivateLayout from './layouts/PrivateLayout'
+import PrivatePage from './Pages/Private/PrivatePage'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <CartContextProvider>
-      <ProductsContextProvider>
-        <ContactContextProvider>
-          <BrowserRouter>
-            <Navbar />
-            <Cart />
-            <Routes>
-              <Route path='/' element={ <Home />} />
-              <Route path='/about' element={ <About /> } />
-              <Route path='/products' element={ <Products />} />
-              <Route path='/login' element={ <LogIn />} />
-              <Route path='/contact' element={ <Contact />} />
-              <Route path='/products/:productId' element={ <ProductDetails />} />
-              <Route path='/checkout' element={ <Checkout />} />
-            </Routes>
-          </BrowserRouter>
-        </ContactContextProvider>
-      </ProductsContextProvider>
-    </CartContextProvider>
+    <AuthContextProvider>
+      <CartContextProvider>
+        <ProductsContextProvider>
+          <ContactContextProvider>
+            <BrowserRouter>
+              <Navbar />
+              <Cart />
+              <Routes>
+                <Route element={ <Rootlayout /> }>
+                  <Route path='/' element={ <Home />} />
+                  <Route path='/about' element={ <About /> } />
+                  <Route path='/products' element={ <Products />} />
+                  <Route path='/contact' element={ <Contact />} />
+                  <Route path='/products/:productId' element={ <ProductDetails />} />
+                  <Route path='/checkout' element={ <Checkout />} />
+                </Route>
+
+                <Route element={ <AuthLayout /> }>
+                  <Route path='/login' element={ <LogIn />} />
+                  <Route path='/register' element={ <Register /> } />
+                </Route>
+
+                <Route element={ <PrivateLayout /> }>
+                  <Route path='/profile' element={ <PrivatePage /> } />
+                </Route>
+
+
+              </Routes>
+            </BrowserRouter>
+          </ContactContextProvider>
+        </ProductsContextProvider>
+      </CartContextProvider>
+    </AuthContextProvider>
   </StrictMode>,
 )
