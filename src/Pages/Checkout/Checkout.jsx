@@ -4,7 +4,7 @@ import CartItem from '../../Components/CartItem/CartItem'
 
 const Checkout = () => {
 
-    const { cart, totalPrice, clearCart } = useCart()
+    const { cart, totalPrice, clearCart, placeOrder } = useCart()
 
 
 
@@ -29,7 +29,7 @@ const Checkout = () => {
           }
           <div className='total-price'>
             <p>Totalt: { totalPrice }:-</p>
-            <button onClick={clearCart} className='pur-btn'>Genomför köp</button>
+            <button onClick={placeOrder} className='pur-btn'>Genomför köp</button>
           </div>
     </div>
   )

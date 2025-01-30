@@ -1,0 +1,68 @@
+.private-page{
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .handle-profile{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-block: 2rem;
+
+    }
+    
+    .logout-btn{
+        border: none;
+        padding: .4rem 1rem;
+        border-radius: .5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        background-color: rgb(36, 149, 248);
+        color: white;
+        cursor: pointer;
+    }
+
+    .order-history-container{
+        padding-bottom: 2rem;
+    }
+
+    .order-history-list{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        list-style: none;
+        padding-top: 1rem;
+    }
+
+    .order{
+        box-shadow: 2px 2px 7px 2px lightgray;
+        padding: 1rem;
+        border-radius: .5rem;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        gap: .4rem;
+        
+    }
+
+    .order-item{
+        list-style: none;
+        padding-block: .1rem;
+    }
+
+    .semibold-font{
+        font-weight: 600;
+    }
+
+    .border-bottom{
+        border-bottom: 1px solid lightgray;
+        padding-bottom: 1rem;
+    }
+
+    .border-top{
+        border-top: 1px solid lightgray;
+        margin-top: 1rem;
+    }
+    .total-price{
+        padding-top: 1rem;
+    }
+}

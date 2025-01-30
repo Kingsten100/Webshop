@@ -12,6 +12,7 @@ import './Pages/LogIn/Login.css'
 import './Pages/Products/Products.css'
 import './Pages/ProductDetails/ProductDetails.css'
 import './Pages/Checkout/Checkout.css'
+import './Pages/Private/PrivatePage.css'
 
 import './Components/Navbar/Navbar.css'
 import './Components/BannerFoot/BannerFoot.css'

@@ -80,6 +80,44 @@ export const CartContextProvider = ({ children }) => {
     setCart([])
   }
 
+  const placeOrder = async () => {
+    const token = localStorage.getItem('accesstoken')
+
+    if(!token){
+      console.log('Ingen användare inloggad')
+      return
+    }
+
+    const newOrder = {
+      products: cart.map(item => ({
+        productId: item.product._id,
+        quantity: item.quantity
+      })),
+    }
+    
+    console.log('Orderdata som skickas', JSON.stringify(newOrder), null, 2)
+    try {
+      const res = await fetch('https://js2-ecommerce-api.vercel.app/api/orders', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(newOrder)
+      })
+
+      if(!res.ok) {
+        throw new Error('Gick inte att spara order')
+      }
+
+      clearCart()
+      return await res.json()
+
+    } catch (error) {
+      console.log('Fel vid beställning', error)
+    }
+  }
+
   const toggleCart = (e) => {
     e.stopPropagation()
     setIsCartOpen(!isCartOpen);
@@ -114,7 +152,8 @@ export const CartContextProvider = ({ children }) => {
     clearCart,
     isCartOpen,
     toggleCart,
-    toggleCartOverlay
+    toggleCartOverlay,
+    placeOrder
 
   }
 
