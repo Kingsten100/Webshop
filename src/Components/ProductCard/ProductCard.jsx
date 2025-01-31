@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { ProductsContext } from '../../Contexts/ProductsContext'
 import { Link } from 'react-router'
 import { useCart } from '../../Contexts/CartContext'
@@ -7,10 +7,16 @@ const ProductCard = ({ product }) => {
     // const {products} = useContext(ProductsContext)
 
     const { addToCart } = useCart()
+    const [atcText, setAtcText] = useState('Lägg till i varukorg')
 
     const handleClick = () => {
         console.log('Lägger till produkt', product)
         addToCart(product)
+        setAtcText('Lägger till...')
+
+        setTimeout(() => {
+            setAtcText('Lägg till i varukorg')
+        }, 2000)
       }
 
   return (
@@ -30,7 +36,7 @@ const ProductCard = ({ product }) => {
             </div>
             <div>
                 <p className='product-price'>{product.price}:-</p>
-                <button onClick={handleClick} className='atc-btn'>Lägg till i varukorg</button>
+                <button onClick={handleClick} className='atc-btn'>{atcText}</button>
             </div>
         </div>
 

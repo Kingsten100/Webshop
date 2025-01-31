@@ -19,7 +19,7 @@ const handleClick = () => {
   }
 
 const handleRomeveItemClick = () => {
-    console.log('Tar bort produkten')
+    console.log('Tar bort produkten') 
     removeItem(item.product._id)
 }
 
@@ -40,8 +40,8 @@ const handleRomeveItemClick = () => {
             <div className='cart-btns'>
                 <button onClick={handleClick} className='add-btn'> + </button>
                 <button onClick={handleRemoveOne} className='remove-btn'> - </button>
-                <div className='delete-btn'>
-                    <button onClick={handleRomeveItemClick}> X </button>
+                <div>
+                    <button className='delete-btn' onClick={handleRomeveItemClick}> X </button>
                 </div>
             </div>
         </div>

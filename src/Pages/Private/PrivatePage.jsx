@@ -7,32 +7,6 @@ const PrivatePage = () => {
     const [orders, setOrders] = useState([])
     const token = localStorage.getItem('accesstoken')
 
-    // useEffect(() => {
-    //     const fetchOrders = async () => {
-    //         try{
-    //             const res = await fetch('https://js2-ecommerce-api.vercel.app/api/orders', {
-    //                 headers: {
-    //                     Authorization: `Bearer ${token}`
-    //                 }
-    //             })
-
-    //             if (!res.ok){
-    //                 throw new Error('Lyckades inte hämt historiken')
-    //             }
-
-    //             const data = await res.json()
-    //             console.log('API respons', data)
-    //             setOrders(data)
-    //         } catch (error){
-    //             console.log('Fel vid hämtning av orderhistorik', error)
-    //         }
-
-    //         if (token) {
-    //             fetchOrders()
-    //         }
-    //     }
-    // }, [token])
-
     useEffect(() => {
         if (!token) {
             console.log('Inget token, kan inte hämta orderhistorik');
@@ -61,6 +35,8 @@ const PrivatePage = () => {
 
         fetchOrders();
     }, [token])
+
+    
   return (
     <div className='private-page'>
         <div className='handle-profile'>

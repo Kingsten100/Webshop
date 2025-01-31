@@ -1,10 +1,11 @@
 import React from 'react'
 import { useCart } from '../../Contexts/CartContext'
 import CartItem from '../../Components/CartItem/CartItem'
+import PurchaseModal from '../../Components/PurchaseModal/PurchaseModal'
 
 const Checkout = () => {
 
-    const { cart, totalPrice, clearCart, placeOrder } = useCart()
+    const { cart, totalPrice, clearCart, placeOrder, isPurModalOpen, closeModal } = useCart()
 
 
 
@@ -29,8 +30,13 @@ const Checkout = () => {
           }
           <div className='total-price'>
             <p>Totalt: { totalPrice }:-</p>
-            <button onClick={placeOrder} className='pur-btn'>Genomför köp</button>
+            <div>
+              <button onClick={placeOrder} className='pur-btn'>Genomför köp</button>
+              <button className='clear-btn' onClick={clearCart}>Rensa korgen</button>
+
+            </div>
           </div>
+          <PurchaseModal isOpen={isPurModalOpen} onClose={closeModal}/>
     </div>
   )
 }

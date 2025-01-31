@@ -4,6 +4,8 @@ import ImageSlider from '../../Components/ImageSlider/ImageSlider'
 import { Link, useParams } from 'react-router'
 import ProductList from '../../Components/ProductList/ProductList'
 import { useProducts } from '../../Contexts/ProductsContext'
+import BannerFoot from '../../Components/BannerFoot/BannerFoot'
+import Footer from '../../Components/Footer/Footer'
 
 const Products = () => {
 
@@ -15,6 +17,7 @@ const Products = () => {
   }
 
   return (
+    <>
     <div className='products-page'>
       <div className='products-page-title'>
         <h1>Våra produkter</h1>
@@ -38,6 +41,9 @@ const Products = () => {
        <ProductList />
         
     </div>
+      <BannerFoot />
+      <Footer/>
+    </>
   )
 }
 

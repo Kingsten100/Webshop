@@ -4,11 +4,14 @@ import {Link, NavLink} from 'react-router'
 import './Navbar.css'
 import { useCart } from '../../Contexts/CartContext'
 import { DiJira } from "react-icons/di";
+import { useAuth } from '../../Contexts/AuthContext'
 
 
 const Navbar = () => {
 
   const {toggleCart} = useCart()
+  const { token } = useAuth()
+
 
   
 
@@ -20,12 +23,20 @@ const Navbar = () => {
             <p className='logotype'><DiJira />TechnoStuff</p>
           </Link>
           <ul className='navbar-links'>
-            <li><NavLink to='/'>Home</NavLink></li>
-            <li><NavLink to='/about'>About</NavLink></li>
-            <li><NavLink to='/products'>Products</NavLink></li>
-            <li><NavLink to='/contact'>Contact</NavLink></li>
+            <li><NavLink to='/'>Hem</NavLink></li>
+            <li><NavLink to='/about'>Om oss</NavLink></li>
+            <li><NavLink to='/products'>Produkter</NavLink></li>
+            <li><NavLink to='/contact'>Kontakt</NavLink></li>
             <div className='border'></div>
-            <li><NavLink to='/login'>Login</NavLink></li>
+
+            {
+              token ? (
+                <li><NavLink to='/profile'>Profil</NavLink></li>
+              ) : (
+                <li><NavLink to='/login'>Login</NavLink></li>
+              )
+            }
+            
             <li><button onClick={toggleCart}>Varukorg</button></li>
           </ul>
         </div>

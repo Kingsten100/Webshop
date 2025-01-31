@@ -24,6 +24,7 @@ import './Components/ProductCard/ProductCard.css'
 import './Components/CartItem/CartItem.css'
 import './Components/RegisterForm/RegisterForm.css'
 import './Components/LoginForm/LoginForm.css'
+import './Components/PurchaseModal/PurchaseModal.css'
 
 import Navbar from './Components/Navbar/Navbar'
 import Home from './Pages/Home/Home'

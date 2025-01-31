@@ -9,6 +9,7 @@ const ProductDetails = () => {
   const { products } = useContext(ProductsContext)
   const { productId } = useParams()
   const { addToCart } = useCart()
+  const [atcText, setAtcText] = useState('Lägg till i varukorg')
 
   const product = products.length > 0 ? products.find(pro => pro._id === productId) : null
 
@@ -21,6 +22,11 @@ const ProductDetails = () => {
   const handleClick = () => {
     console.log('Lägger till produkt', product)
     addToCart(product)
+    setAtcText('Lägger till...')
+
+        setTimeout(() => {
+            setAtcText('Lägg till i varukorg')
+        }, 2000)
   }
 
   return (
@@ -39,7 +45,7 @@ const ProductDetails = () => {
       </div>
       <div className='pd-pur'>
         <p>{product.price}:-</p>
-        <button className='atc-btn' onClick={handleClick}>Lägg till i varukorg</button>
+        <button className='atc-btn' onClick={handleClick}>{atcText}</button>
       </div>
     </div>
   )

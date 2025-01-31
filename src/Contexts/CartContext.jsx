@@ -30,6 +30,7 @@ export const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([])
   const totalquantity = getTotalQuantity(cart)
   const totalPrice = getTotalPrice(cart)
+  const [isPurModalOpen, setIsPurModalOpen] = useState(false)
 
 
   
@@ -84,7 +85,9 @@ export const CartContextProvider = ({ children }) => {
     const token = localStorage.getItem('accesstoken')
 
     if(!token){
-      console.log('Ingen användare inloggad')
+      console.log('Ingen användare inloggad - "gästköp"')
+      clearCart()
+      setIsPurModalOpen(true)
       return
     }
 
@@ -95,7 +98,7 @@ export const CartContextProvider = ({ children }) => {
       })),
     }
     
-    console.log('Orderdata som skickas', JSON.stringify(newOrder), null, 2)
+    console.log('Orderdata som skickas', JSON.stringify(newOrder))
     try {
       const res = await fetch('https://js2-ecommerce-api.vercel.app/api/orders', {
         method: 'POST',
@@ -111,11 +114,17 @@ export const CartContextProvider = ({ children }) => {
       }
 
       clearCart()
+      setIsPurModalOpen(true)
+
       return await res.json()
 
     } catch (error) {
       console.log('Fel vid beställning', error)
     }
+  }
+
+  const closeModal = () => {
+    setIsPurModalOpen(false)
   }
 
   const toggleCart = (e) => {
@@ -153,7 +162,9 @@ export const CartContextProvider = ({ children }) => {
     isCartOpen,
     toggleCart,
     toggleCartOverlay,
-    placeOrder
+    placeOrder,
+    isPurModalOpen,
+    closeModal
 
   }
 

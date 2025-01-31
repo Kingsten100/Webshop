@@ -32,4 +32,19 @@
     .pur-btn:hover{
         background-color: hsl(208, 94%, 50%);
     }
+
+    .clear-btn{
+        border: none;
+        padding: .4rem 1rem;
+        border-radius: .5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        background-color: firebrick;
+        color: white;
+        cursor: pointer;
+        margin-left: 1rem;
+    }
+    .clear-btn:hover{
+        background-color: hsl(0, 68%, 38%);
+    }
 }

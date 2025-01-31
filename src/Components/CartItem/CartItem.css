@@ -52,6 +52,10 @@
         border-radius: .5rem 0 0 .5rem;
         color: white;
         font-weight: 600;
+        cursor: pointer;
+    }
+    .add-btn:hover{
+        background-color: hsl(208, 94%, 50%);
     }
     .remove-btn{
         background-color: rgb(36, 149, 248);
@@ -61,21 +65,26 @@
         padding: .3rem .4rem;
         border: none;
         border-radius: 0 .5rem .5rem 0;
+        cursor: pointer;
+    }
+    .remove-btn:hover{
+        background-color: hsl(208, 94%, 50%);
     }
 
     .delete-btn{
-        padding-left: 1rem;
-
-        button{
-
-            background-color: rgb(36, 149, 248);
-            font-weight: 600;
-            color: white;
-            font-size: 1rem;
-            padding: .3rem .4rem;
-            border: none;
-            border-radius: .5rem;
-        }
+        margin-left: 1rem;
+        background-color: rgb(36, 149, 248);
+        font-weight: 600;
+        color: white;
+        font-size: 1rem;
+        padding: .3rem .4rem;
+        border: none;
+        border-radius: .5rem;
+        cursor: pointer;
+        
+    }
+    .delete-btn:hover{
+        background-color: hsl(208, 94%, 50%);
     }
     
 }

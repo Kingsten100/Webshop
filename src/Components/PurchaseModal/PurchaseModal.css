@@ -1,0 +1,35 @@
+.purchase-component{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(72, 72, 72, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+
+    .modal{
+        
+        background-color: white;
+        width: 700px;
+        padding: 1rem;
+        border-radius: .5rem;
+        max-height: 90%;
+        overflow-y: auto;
+    }
+
+    .header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 1rem;
+    }
+    .close-btn{
+        border: none;
+        background-color: transparent;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+}
