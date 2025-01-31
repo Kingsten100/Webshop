@@ -65,11 +65,8 @@ const RegisterForm = () => {
         <button className='register-btn'>Registrera</button>
       </form>
       <div className='login-redirect'>
-        <p>
-            Redan medlem? 
-            <Link to='/login'>Logga in här</Link>
-
-        </p>
+        <p>Redan medlem?</p>
+        <Link to='/login'>Logga in här</Link>
       </div>
     </div>
   )

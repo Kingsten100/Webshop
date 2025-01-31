@@ -32,9 +32,17 @@
         border: none;
         background-color: orange;
         border-radius: .5rem;
+        cursor: pointer;
     }
+
+    .register-btn:hover{
+        background-color: hsl(39, 100%, 55%);
+    }
+
 
     .login-redirect{
         padding-top: 1rem;
+        display: flex;
+        gap: .5rem;
     }
 }

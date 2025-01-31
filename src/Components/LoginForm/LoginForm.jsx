@@ -33,7 +33,7 @@ const LoginForm = () => {
             }
         }
 
-
+ 
   return (
     <div className='login-container'>
         <form onSubmit={handleSubmit}>
@@ -45,18 +45,17 @@ const LoginForm = () => {
             <label htmlFor="password">Password</label>
             <input value={formData.password} onChange={onChange} type="password" id='password' />
         </div>
-        { error && <p>{ error }</p>}
-        { success && <p>{ success }</p>}
+        <div className='error-container'>
+            { error && <p className='error'>{ error }</p>}
+            { success && <p>{ success }</p>}
+        </div>
         
         
         <button className='register-btn'>Logga in</button>
         </form>
         <div className='login-redirect'>
-        <p>
-            Inte medlem? 
+        <p>Inte medlem?</p>
             <Link to='/register'>Registrera dig här</Link>
-
-        </p>
         </div>
   </div>
   )

@@ -16,11 +16,11 @@ const Products = () => {
 
   return (
     <div className='products-page'>
-      <div>
+      <div className='products-page-title'>
         <h1>Våra produkter</h1>
       </div>
       <div className='filter'>
-        <label htmlFor="category">Filtrera efter kategori:</label>
+        <label htmlFor="category">Filtrer: </label>
         <select id="category" onChange={handleCategoryChange}>
           <option value="">Alla kategorier</option>
           {categories && categories.length > 0 ? (
@@ -32,9 +32,7 @@ const Products = () => {
           ) : (
             <option disabled>Laddar kategorier...</option>
           )}
-          {/* {categories.map((category) => (
-            <option value="category" key={category}></option>
-          ))} */}
+         
         </select>
       </div>
        <ProductList />

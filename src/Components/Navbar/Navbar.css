@@ -12,6 +12,14 @@
         margin-inline: auto;
       
       }
+
+      .logotype{
+        display: flex;
+        align-items: center;
+        color: white;
+        font-size: 2rem;
+        font-weight: 600;
+      }
       
       .navbar-links{
         display: flex;
@@ -34,5 +42,8 @@
           font-size: 1rem;
           cursor: pointer;
         }
+      }
+      .border{
+        border-right: 1px solid white;
       }
 }

@@ -35,8 +35,23 @@
     .total-price{
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding-top: 1rem ;
-        padding-inline: 1rem;
         font-weight: 600;
+    }
+
+    .checkout-btn{
+        border: none;
+        padding: .4rem 1rem;
+        border-radius: .5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        background-color: rgb(36, 149, 248);
+        color: white;
+        cursor: pointer;
+    }
+
+    .checkout-btn:hover{
+        background-color: hsl(208, 94%, 50%);
     }
 }

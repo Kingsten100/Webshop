@@ -9,19 +9,19 @@ const Contact = () => {
 
   return (
     <div className='contact-page'>
-      <div>
+
+      <div className='form-container'>
+      <div className='contact-page-info'>
         <h1>Har du en fråga?</h1>
         <p>Kontakta oss</p>
       </div>
-
-      <div className='form-container'>
       <form className='form-group' onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="name">First Name</label>
+          <label htmlFor="name">Ditt namn</label>
           <input className='form-input' id='name' type="text" value={formData.name} onChange={handleChange} />
           { formErrors.name && <p className='error'>{formErrors.name }</p> }
         </div>
-        
+         
         <div>
           <label htmlFor="email">Email</label>
           <input className='form-input' id='email' type="email" value={formData.email} onChange={handleChange} />
@@ -29,7 +29,7 @@ const Contact = () => {
         </div>
         
         <div>
-          <label htmlFor="message">Message</label>
+          <label htmlFor="message">Meddelande</label>
           <input className='form-input' id='message' type="text" value={formData.message} onChange={handleChange} />
           { formErrors.message && <p className='error'>{formErrors.message }</p> }
         </div>

@@ -36,7 +36,7 @@ const Cart = () => {
                 <p>Din varukorg är tom</p>
               </div>
             )
-          }
+          } 
           {
             cart.map(item => (
               <CartItem key={'cart_' + item.product._id} item={item} />
@@ -45,7 +45,7 @@ const Cart = () => {
           <div className='total-price'>
             <p>Totalt: { totalPrice }:-</p>
             
-              <button onClick={handleCheckout}>Checkout</button>
+            <button className='checkout-btn' onClick={handleCheckout}>Checkout</button>
             
             
           </div>

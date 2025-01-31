@@ -2,5 +2,55 @@
     max-width: 1200px;
     margin: 0 auto;
     padding-block: 2rem;
+
+    .semibold-text{
+        font-weight: 600;
+        padding-bottom: .5rem;
+    }
+
+
+   .location{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    
+    
+    h3{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1rem;
+        
+    }
+   }
+
+   .address{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   }
+
+   .open-hours{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   }
+
+    .maps-container{
+        max-width: 400px;
+        max-height: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+       
+
+        img{
+            width: 100%;
+            border: 1px solid lightgray;
+            border-radius: .5rem;
+            overflow: hidden;
+            
+        }
+    }
     
 }

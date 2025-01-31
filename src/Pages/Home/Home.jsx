@@ -33,7 +33,7 @@ const Home = () => {
         <div className='hero-text'>
           <h1>Hejsan hur mår du?</h1>
           <p>Kolla in våra fina produkter</p>
-          <button>Gå till produkter</button>
+          <Link to='/products' className='all-products-btn'>Gå till produkter</Link>
         </div>
       </div>
       <div className='products-title'>
@@ -48,7 +48,7 @@ const Home = () => {
                      <ProductCard key={product._id} product={product} />
                  )}
              </div>
-         </div>
+         </div> 
           }
         </ul>
         <div className='show-more-btn'>
