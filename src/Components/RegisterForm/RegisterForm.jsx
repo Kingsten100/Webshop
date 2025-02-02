@@ -60,8 +60,8 @@ const RegisterForm = () => {
             <label htmlFor="repeatPassword">Repeat password</label>
             <input value={formData.repeatPassword} onChange={onChange} type="password" id='repeatPassword'/>
         </div>
-        { error && <p>{error}</p>}
-        {success && <p>{success}</p>}
+        { error && <p className='error'>{error}</p>}
+        {success && <p className='success'>{success}</p>}
         <button className='register-btn'>Registrera</button>
       </form>
       <div className='login-redirect'>

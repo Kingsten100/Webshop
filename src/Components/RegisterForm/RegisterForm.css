@@ -45,4 +45,12 @@
         display: flex;
         gap: .5rem;
     }
+
+    .error{
+        color: firebrick;
+    }
+
+    .success{
+        color: rgb(0, 167, 89);
+    }
 }
